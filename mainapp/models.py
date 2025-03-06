@@ -12,6 +12,8 @@ class User(AbstractUser):
     height = models.FloatField(null=True, blank=True)
     weight = models.FloatField(null=True, blank=True)
     disease = models.TextField(null=True, blank=True)
+    allergies = models.TextField(null=True, blank=True)
+    medications = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
 
 class Timeline(models.Model):
