@@ -4,7 +4,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework.views import APIView
-from .serializers import UserSerializer, TimelineSerializer, AIChatsSerializer
+from .serializers import UserSerializer, TimelineSerializer, AIChatsSerializer, UserRegistrationSerializer
 from rest_framework import viewsets
 from .models import Timeline, AIChats
 import google.generativeai as genai
@@ -22,8 +22,9 @@ class RegisterUserView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
-        serializer = UserSerializer(data=request.data, partial=True)
+        serializer = UserRegistrationSerializer(data=request.data, partial=True)
         if serializer.is_valid():
+            print(serializer.data)
             user = User.objects.create_user(
                 username=serializer.validated_data['username'],
                 email=serializer.validated_data['email'],

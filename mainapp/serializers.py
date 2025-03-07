@@ -4,6 +4,11 @@ from .models import Timeline, AIChats
 
 UserModel = get_user_model()
 
+class UserRegistrationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserModel
+        fields = '__all__'
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserModel

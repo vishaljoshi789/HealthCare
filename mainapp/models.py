@@ -24,7 +24,7 @@ class Timeline(models.Model):
     disease = models.TextField()
     medicine = models.TextField()
     image = models.ImageField(upload_to='timeline/', null=True, blank=True)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
 
 class AIChats(models.Model):
     chat_type_choices = (('Prescription', 'Prescription'), ('Consultation', 'Consultation'), ('Substitute Medicine', 'Substitute Medicine'), ('Pregnancy', 'Pregnancy'), ('Child', 'Child'), ('Prediction', 'Prediction'))
