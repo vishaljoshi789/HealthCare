@@ -9,8 +9,8 @@ class User(AbstractUser):
     phone = models.CharField(max_length=15, null=True, blank=True)
     address = models.TextField(null=True, blank=True)
     blood_group = models.CharField(max_length=10, null=True, blank=True)
-    height = models.FloatField(null=True, blank=True)
-    weight = models.FloatField(null=True, blank=True)
+    height = models.CharField(max_length=10, null=True, blank=True)
+    weight = models.CharField(max_length=10, null=True, blank=True)
     disease = models.TextField(null=True, blank=True)
     allergies = models.TextField(null=True, blank=True)
     medications = models.TextField(null=True, blank=True)
@@ -24,6 +24,7 @@ class Timeline(models.Model):
     disease = models.TextField()
     medicine = models.TextField()
     image = models.ImageField(upload_to='timeline/', null=True, blank=True)
+    description = models.TextField()
 
 class AIChats(models.Model):
     chat_type_choices = (('Prescription', 'Prescription'), ('Consultation', 'Consultation'), ('Substitute Medicine', 'Substitute Medicine'), ('Pregnancy', 'Pregnancy'), ('Child', 'Child'), ('Prediction', 'Prediction'))
