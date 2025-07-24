@@ -163,6 +163,9 @@
 git clone https://github.com/vishaljoshi789/HealthCare.git
 cd HealthCare
 
+# Initialize and pull submodules
+git submodule update --init --recursive
+
 # 🐍 Create virtual environment
 python -m venv healthcare_env
 
