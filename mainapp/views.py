@@ -10,11 +10,13 @@ from .models import Timeline, AIChats
 import google.generativeai as genai
 from rest_framework.permissions import IsAdminUser, IsAuthenticated, AllowAny
 from PIL import Image
+from django.conf import settings
+
 
 # Create your views here.
 
 User = get_user_model()
-genai.configure(api_key="AIzaSyBLj0cg85ucyRdrFbfXmoXqv01EozwPnws")
+genai.configure(api_key=settings.GEMINI_API)
 model = genai.GenerativeModel("gemini-2.0-flash")
 
 
